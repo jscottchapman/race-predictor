@@ -1,4 +1,4 @@
 
 # Race Predictor
 
-##  An application to predict your marathon finishing time based on your training
+##  An open source application to predict your marathon finishing time based on your training
