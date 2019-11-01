@@ -8,7 +8,13 @@ const Form = () => {
 		minutes: 0,
 		seconds: 0
 	});
-	console.log({ minutes, miles, seconds });
+
+	const kmPerWeek = miles * 1.60934;
+	const minutesPerMile = parseInt(minutes) + parseInt(seconds) / 60;
+	const KM_TO_MILES = 0.6214;
+	const minmi2minkm = () => {
+		return minutesPerMile * KM_TO_MILES;
+	};
 	return (
 		<div>
 			<FormTitle>Input your weekly mileage and average speed</FormTitle>
@@ -20,9 +26,12 @@ const Form = () => {
 			<FormField>
 				<input type="number" name="minutes" min="1" max="60" onChange={setValue} />minutes
 				<input type="number" name="seconds" min="0" max="60" onChange={setValue} />seconds
-				<Label>average pace for the week</Label>
+				<Label>average minutes per mile for the week</Label>
 			</FormField>
 			<button>Calculate</button>
+
+			<h4>{kmPerWeek.toFixed(2)}kms per week</h4>
+			<h4>{minmi2minkm()}minutes per km</h4>
 		</div>
 	);
 };
