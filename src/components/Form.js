@@ -15,6 +15,10 @@ const Form = () => {
 	const minmi2minkm = () => {
 		return minutesPerMile * KM_TO_MILES;
 	};
+	console.log('typeof', typeof minmi2minkm());
+	const minutesPerKilometer = Math.floor(minmi2minkm());
+
+	const secondsPerKilometer = (minmi2minkm() % 1) * 60;
 	return (
 		<div>
 			<FormTitle>Input your weekly mileage and average speed</FormTitle>
@@ -31,7 +35,9 @@ const Form = () => {
 			<button>Calculate</button>
 
 			<h4>{kmPerWeek.toFixed(2)}kms per week</h4>
-			<h4>{minmi2minkm()}minutes per km</h4>
+			<h4>
+				{minutesPerKilometer}:{secondsPerKilometer.toFixed(0)} per km
+			</h4>
 		</div>
 	);
 };
